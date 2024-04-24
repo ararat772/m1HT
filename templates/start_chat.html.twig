@@ -1,0 +1,15 @@
+{# templates/start_chat.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Chat</title>
+</head>
+<body>
+<h1>Start a New Chat</h1>
+<form action="{{ path('create_chat') }}" method="post">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Open Chat</button>
+</form>
+</body>
+</html>

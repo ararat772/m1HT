@@ -1,0 +1,46 @@
+version: '3'
+services:
+  m1ht-php:
+    container_name: M1HT-php
+    hostname: M1HT-php
+    restart: unless-stopped
+    build:
+      context: ./
+    volumes:
+      - .:/var/www/html
+    networks:
+      - m1ht-network
+    depends_on:
+      - m1ht-postgres
+
+  m1ht-nginx:
+    image: nginx:1.23.1-alpine
+    container_name: M1HT-nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "9090:80"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/:/etc/nginx/conf.d/
+    networks:
+      - m1ht-network
+
+  m1ht-postgres:
+    image: postgres:14.4-alpine
+    container_name: M1HT-postgres
+    restart: unless-stopped
+    ports:
+      - "5438:5432"
+    networks:
+      - m1ht-network
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: test
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    hostname: M1HT-postgres
+
+networks:
+  m1ht-network:
+    driver: bridge

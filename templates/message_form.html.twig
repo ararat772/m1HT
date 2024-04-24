@@ -1,0 +1,21 @@
+{# templates/message_form.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+</head>
+<body>
+<h1>Send a Message</h1>
+<form action="{{ path('send_message') }}" method="post">
+    <input type="hidden" name="chatId" value="{{ chatId }}">
+    <input type="hidden" name="userId" value="{{ userId }}">
+    <input type="text" id="text" name="text" placeholder="Type your message here">
+    <button type="submit">Send Message</button>
+</form>
+
+{#<!-- Add form to close chat -->#}
+{#<form action="{{ path('close_chat', {'id': chatId}) }}" method="post">#}
+{#    <button type="submit">Close Chat</button>#}
+{#</form>#}
+</body>
+</html>

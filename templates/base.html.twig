@@ -1,0 +1,13 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Chat Application{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{# templates/close_chat_form.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Close Chat</title>
+</head>
+<body>
+<h1>Close Chat</h1>
+{% for message in app.flashes('success') %}
+    <div>{{ message }}</div>
+{% endfor %}
+<form action="{{ path('close_chat', {'id': chatId}) }}" method="post">
+    <button type="submit">Close Chat</button>
+</form>
+</body>
+</html>

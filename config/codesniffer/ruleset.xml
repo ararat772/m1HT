@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Custom Standard">
+    <description>The Custom ruleset with PSR1 + PSR12 coding standards.</description>
+    <rule ref="PSR1"/>
+    <rule ref="PSR12"/>
+</ruleset>
